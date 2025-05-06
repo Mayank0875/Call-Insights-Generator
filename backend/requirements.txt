@@ -1,0 +1,14 @@
+
+assemblyai
+
+langchain
+langchain_google_genai
+langchain_community
+
+dotenv
+fastapi
+uvicorn
+python-multipart
+aiohttp
+python-dotenv
+pydantic
