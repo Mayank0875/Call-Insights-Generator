@@ -84,7 +84,8 @@ def convert_audio_to_text_and_analyze(audio_path):
     
     file_path = transcribe_audio(audio_path)
     transcript = ''
-    with open(f"data/{file_path}", 'r') as f:
+    save_file_path = path = os.path.join(os.path.dirname(__file__), "data", f"{file_path}")
+    with open(save_file_path, 'r') as f:
         transcript = f.read()
     
     call_assistant = CallAssistant()

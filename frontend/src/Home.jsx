@@ -49,7 +49,7 @@ function Home() {
         const formData = new FormData();
         formData.append('file', audioFile);
 
-        response = await fetch('http://localhost:8000/process-audio/', {
+        response = await fetch('https://call-insights-generator-backend.onrender.com/process-audio/', {
           method: 'POST',
           body: formData,
         });
@@ -60,7 +60,7 @@ function Home() {
           return;
         }
 
-        response = await fetch('http://localhost:8000/process-audio-url/', {
+        response = await fetch('https://call-insights-generator-backend.onrender.com/process-audio-url/', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
