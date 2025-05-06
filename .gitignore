@@ -17,9 +17,7 @@ backend/.env
 backend/.mypy_cache/
 backend/.pytest_cache/
 backend/.DS_Store
-backend/data/*
-backend/data/
-data/
+
 
 # === OS/System files ===
 .DS_Store

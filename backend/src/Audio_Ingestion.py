@@ -19,7 +19,7 @@ def transcribe_audio(audio_file):
   for utterance in transcript.utterances:
     line = f"Speaker {utterance.speaker}: {utterance.text}\n"
     content += line
-    print(line.strip())  # print to console     # write to file
+    print(line.strip())  # print to console
   return content
 
 
