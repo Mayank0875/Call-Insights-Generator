@@ -16,9 +16,9 @@ def transcribe_audio(audio_file):
   )
   transcript = aai.Transcriber().transcribe(audio_file, config)
   random_filename = f"{uuid.uuid4().hex}.txt"
-
+  save_file_path = path = os.path.join(os.path.dirname(__file__), "../", f"data/{random_filename}")
   # Save diarized transcript to a text file
-  with open(f"data/{random_filename}", "w") as f:
+  with open(save_file_path, "w") as f:
       for utterance in transcript.utterances:
           line = f"Speaker {utterance.speaker}: {utterance.text}\n"
           print(line.strip())  # print to console
@@ -27,7 +27,7 @@ def transcribe_audio(audio_file):
 
 
 if __name__ == "__main__":
-   transcribe_audio('data/Conference.wav')
+    transcribe_audio('data/Conference.wav')
 
 
 
