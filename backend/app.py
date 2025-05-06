@@ -82,11 +82,7 @@ async def process_audio(file: Optional[UploadFile] = File(None), url: Optional[s
 
 def convert_audio_to_text_and_analyze(audio_path):
     
-    file_path = transcribe_audio(audio_path)
-    transcript = ''
-    save_file_path = path = os.path.join(os.path.dirname(__file__), "data", f"{file_path}")
-    with open(save_file_path, 'r') as f:
-        transcript = f.read()
+    transcript = transcribe_audio(audio_path)
     
     call_assistant = CallAssistant()
     structured_dialogue = call_assistant.generate_structured_dialogue(transcript)

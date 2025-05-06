@@ -1,7 +1,6 @@
 import assemblyai as aai
 import os
 from dotenv import load_dotenv
-import uuid
 load_dotenv()
 
 
@@ -15,15 +14,13 @@ def transcribe_audio(audio_file):
     speaker_labels=True,
   )
   transcript = aai.Transcriber().transcribe(audio_file, config)
-  random_filename = f"{uuid.uuid4().hex}.txt"
-  save_file_path = path = os.path.join(os.path.dirname(__file__), "../", f"data/{random_filename}")
-  # Save diarized transcript to a text file
-  with open(save_file_path, "w") as f:
-      for utterance in transcript.utterances:
-          line = f"Speaker {utterance.speaker}: {utterance.text}\n"
-          print(line.strip())  # print to console
-          f.write(line)        # write to file
-  return random_filename
+
+  content = ''
+  for utterance in transcript.utterances:
+    line = f"Speaker {utterance.speaker}: {utterance.text}\n"
+    content += line
+    print(line.strip())  # print to console     # write to file
+  return content
 
 
 if __name__ == "__main__":
